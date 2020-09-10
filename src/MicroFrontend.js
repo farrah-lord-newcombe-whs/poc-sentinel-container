@@ -10,21 +10,10 @@ class MicroFrontend extends React.Component {
       this.renderMicroFrontend();
       return;
     }
-
-    // fetch(`${host}/asset-manifest.json`, {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Access-Control-Allow-Origin': '*'
-    //   }
-    // })
     
     fetch(`${host}/asset-manifest.json`)
-      .then(res => {
-        res.json();
-        console.log('res', res);
-      })
+      .then(res => res.json())
       .then(manifest => {
-        console.log('manifest: ', manifest);
         const script = document.createElement('script');
         script.id = scriptId;
         script.crossOrigin = '';
